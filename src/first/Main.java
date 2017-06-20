@@ -1,20 +1,28 @@
 package first;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.io.*;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Main {
 	
 	public static void main(String[] args) {
-	Conta aecio = new Conta(1000,"Neves",10904);
-	Conta cx2 = new Conta(200000,"Aecio",12345);
-	aecio.creditar(500);
-	cx2.debitar(500);
-	cx2.creditar(1000);
-	aecio.save("C:/Users/Zath/workspace/Banco");
-	cx2.save("C:/Users/Zath/workspace/Banco");
-	
+		
+		ContaIlimitada contailimitada = new ContaIlimitada(20,"Nome", 123456);
+		contailimitada.imprimeExtrato();
+		contailimitada.debitar(50);
+		contailimitada.imprimeExtrato();
+		ContaChequeEspecial contacheque = new ContaChequeEspecial(3000,"Atum",123457,500);
+		contacheque.debitar(5000);
+		contacheque.imprimeExtrato();
+		ContaDebito contadebito = new ContaDebito(2000,"Boi",123458);
+		contadebito.debitar(2001);
+		contadebito.imprimeExtrato();
+		UsuarioMultiplo user =  new UsuarioMultiplo("Eu",234832908,contailimitada);
+		user.addConta(contacheque);
+		user.addConta(contadebito);
+		user.transferencia(10, contacheque, 0);
+		contacheque.imprimeExtrato();
 		
 	}
 

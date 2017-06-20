@@ -6,12 +6,12 @@ public class Usuario {
 	String address;
 	Conta conta;
 	
+	
 	public Usuario(String nome, int CPF, Conta conta){
 		this.nome = nome;
 		this.CPF = CPF;
 		this.conta = conta;
 	}
-	
 	
 
 	public Usuario(String nome, int CPF, String address, Conta conta) {
